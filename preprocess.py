@@ -18,7 +18,7 @@ def clean_text(text):
     return text.strip()
 
 # Function to chunk the text into smaller pieces based on sentences
-def chunk_text(text, max_chunk_size=5):
+def chunk_text(text, max_chunk_size=2):
     # Split the text into sentences using NLTK's sentence tokenizer
     sentences = sent_tokenize(text)
 

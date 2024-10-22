@@ -1,0 +1,20 @@
+Raw Question LLM Output: What is the name of the largest city in the ohio valley?
+Raw Answer LLM Output: Pittsburgh is the second-most populous city in Pennsylvania, after Philadelphia.
+Raw Question LLM Output: What was the name of the city that was behind only New York City and Chicago in corporate headquarters employment?
+Raw Answer LLM Output: For part of the 20th century, pittsburgh was behind only new york city and chicago in corporate headquarters employment
+Raw Question LLM Output: What is the name of the city that has served as the federal agency headquarters for cyber defense, software engineering, robotics, energy research, and the nuclear navy?
+Raw Answer LLM Output: The area has served as the federal agency headquarters for cyber defense, software engineering, robotics, energy research, and the nuclear navy.
+Raw Question LLM Output: What is the name of the city's major league professional sports teams?
+Raw Answer LLM Output: The city's major league professional sports teams include the pittsburgh steelers, pittsburgh penguins, and pittsburgh pirates.
+Raw Question LLM Output: What was the name of the city that was federally recognized as Pittsburgh?
+Raw Answer LLM Output: from 1891 to 1911, the city's name was federally recognized as "pittsburg"
+Raw Question LLM Output: What is the name of the first known European to enter the region?
+Raw Answer LLM Output: The first known european to enter the region was the french explorer robert de la salle from quebec during his 1669 expedition down the ohio river.
+Raw Question LLM Output: What was the name of the French fort that was built in 1753?
+Raw Answer LLM Output: The french built fort duquesne based on lasalle's 1669 claims
+Raw Question LLM Output: What was the name of the fort that was named after William Pitt the Elder?
+Raw Answer LLM Output: Fort Pitt was named after William Pitt the Elder
+Raw Question LLM Output: What was the name of the first constable in Pittsburgh?
+Raw Answer LLM Output: William Teagarden was the first constable
+Raw Question LLM Output: What was the name of the town that was chartered in 1787?
+Raw Answer LLM Output: The following is a list of notable events in the history of the city of pittsburgh , pennsylvania .
