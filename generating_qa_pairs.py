@@ -6,8 +6,8 @@ from tqdm import tqdm  # Progress bar
 qa_generator = pipeline('text2text-generation', model='google/flan-t5-large')
 
 # Paths for preprocessed data and output directory
-preprocessed_file = 'scraped_data/preprocessed_content.txt'
-output_dir = 'data/test/'
+preprocessed_file = os.path.join('scraped_data', 'preprocessed_content.txt')
+output_dir = os.path.join('data', 'test')
 
 # Create output directory if it doesn't exist
 os.makedirs(output_dir, exist_ok=True)
