@@ -1,4 +1,0 @@
-nltk
-sentence-transformers
-faiss-cpu
-tqdm
