@@ -1,6 +1,6 @@
 # RAG-QA-LLM-Pipeline
 
-The scrapped data and preprocessed data are not present in this github due to size issues. They can be created using the scrapper.py and preprocess.py. Following which, the rag model pipeline is implemented in the following steps.
+The scrapped data and preprocessed data are not present in this github due to storage issues. They can be created using the scrapper.py and preprocess.py code. Following which, the rag model pipeline is implemented in the following steps.
 
 Steps to run code:
 1. Install libraries from the requirements.txt file
