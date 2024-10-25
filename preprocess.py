@@ -1,46 +1,60 @@
 import os
 import re
-import nltk
+import spacy
+from bs4 import BeautifulSoup
 
-# Download necessary data for NLTK's sentence tokenizer
-nltk.download('punkt')
-from nltk.tokenize import sent_tokenize
+from spacy.lang.en import English 
 
-# Directory containing scraped text files
+nlp = English()
+
+nlp.max_length = 1000000  
+
+nlp.add_pipe("sentencizer")
+
+#Directory containing scraped text files
 scraped_data_dir = 'scraped_data'
-combined_file = 'scraped_data/combined_content.txt'
-preprocessed_file = 'scraped_data/preprocessed_content.txt'
+combined_file = 'C:/Users/Amulya/Documents/CMU_Sem3/ANLP/RAG-QA-LLM-Pipeline/scraped_data/combined_content5.txt'
+preprocessed_file = 'C:/Users/Amulya/Documents/CMU_Sem3/ANLP/RAG-QA-LLM-Pipeline/scraped_data/preprocessed_content5.txt'
 
-# Function to clean and preprocess text
 def clean_text(text):
-    text = text.lower()  # Convert to lowercase
-    text = re.sub(r'\s+', ' ', text)  # Remove excess whitespace
-    return text.strip()
+    text = text.lower()
 
-# Function to chunk the text into smaller pieces based on sentences
-def chunk_text(text, max_chunk_size=2):
-    # Split the text into sentences using NLTK's sentence tokenizer
-    sentences = sent_tokenize(text)
+    text = re.sub(r'http\S+|www\S+|https\S+', '', text, flags=re.MULTILINE)
 
-    # Group sentences into chunks (e.g., group every 'max_chunk_size' sentences into one chunk)
+    text = re.sub(r'\[\d+\]', '', text)
+
+    #text = re.sub(r'[@#$%^&*()_+\-=\[\]{}|<>]', '', text)
+
+    #text = re.sub(r'–|—', '-', text)  # Replace em-dashes with hyphens
+
+    text = re.sub(r'\d+\.\s+', '', text)  # Remove "1. ", "2. ", etc.
+    text = re.sub(r'[•●▪]', '', text)  # Remove bullet points
+
+    text = re.sub(r'\.{2,}', '.', text)
+
+    text = re.sub(r'(section|article)\s?\d+[-:]?', '', text)
+
+    text = re.sub(r'\s+', ' ', text).strip()
+
+    return text
+
+def chunk_text_spacy(text, max_chunk_size=5):
+    doc = nlp(text)
+    sentences = [sent.text for sent in doc.sents] 
+
     chunks = [' '.join(sentences[i:i + max_chunk_size]) for i in range(0, len(sentences), max_chunk_size)]
 
     return chunks
 
-# Function to preprocess and chunk the combined content file
 def preprocess_and_chunk():
     try:
-        # Read the combined content
         with open(combined_file, 'r', encoding='utf-8') as file:
             content = file.read()
 
-        # Clean the text
         cleaned_content = clean_text(content)
 
-        # Chunk the text (group sentences into chunks of 5 sentences per chunk by default)
-        chunks = chunk_text(cleaned_content, max_chunk_size=5)
+        chunks = chunk_text_spacy(cleaned_content, max_chunk_size=5) # changed to 1, 2, 5, 7, 10
 
-        # Save the preprocessed and chunked content
         with open(preprocessed_file, 'w', encoding='utf-8') as file:
             for chunk in chunks:
                 file.write(chunk + '\n')
